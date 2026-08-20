@@ -197,12 +197,12 @@ export default function ParticleField({
           const dy = a.y - b.y;
           const dist = Math.sqrt(dx * dx + dy * dy);
           if (dist < linkDist) {
-            const alpha = (1 - dist / linkDist) * 0.25;
+            const alpha = (1 - dist / linkDist) * 0.7;
             const bothScanned = a.scanned && b.scanned;
             ctx.strokeStyle = bothScanned
-              ? `rgba(110, 231, 183, ${alpha * 1.5})`
-              : `rgba(148, 163, 184, ${alpha})`;
-            ctx.lineWidth = 0.5;
+              ? `rgba(110, 231, 183, ${alpha})`
+              : `rgba(125, 211, 252, ${alpha * 0.8})`;
+            ctx.lineWidth = 1.2;
             ctx.beginPath();
             ctx.moveTo(a.x, a.y);
             ctx.lineTo(b.x, b.y);
