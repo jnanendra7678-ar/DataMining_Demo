@@ -552,15 +552,10 @@ export default function PresentationDashboard({ records, onReset, onClear, parti
   const startAnalysis = async () => {
     if (!canAnalyze) return;
     setAnalyzing(true);
-    // Run analysis
     const result = analyze(records);
     setAnalysis(result);
     setAnalyzing(false);
-    // Auto-advance through stages
-    for (let i = 0; i < 8; i++) {
-      setStage(i);
-      await new Promise((resolve) => setTimeout(resolve, 6000));
-    }
+    setStage(0);
   };
 
   const reset = () => {
